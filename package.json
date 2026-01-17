@@ -1,5 +1,5 @@
 {
-	"name": "hono-bullmq-htmx",
+	"name": "honox-bullmq",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
