@@ -10,6 +10,9 @@
 	},
 	"private": true,
 	"dependencies": {
+		"@bull-board/api": "^6.16.2",
+		"@bull-board/hono": "^6.16.2",
+		"@bull-board/ui": "^6.16.2",
 		"bullmq": "^5.66.5",
 		"hono": "^4.11.4",
 		"honox": "0.1.52",
