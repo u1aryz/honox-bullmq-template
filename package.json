@@ -11,7 +11,8 @@
 	"private": true,
 	"dependencies": {
 		"hono": "^4.11.4",
-		"honox": "0.1.52"
+		"honox": "0.1.52",
+		"valibot": "^1.2.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.3.11",
