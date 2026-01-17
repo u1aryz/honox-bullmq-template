@@ -1,11 +1,10 @@
 {
-	"name": "basic",
+	"name": "hono-bullmq-htmx",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build --mode client && vite build",
-		"preview": "wrangler dev",
-		"deploy": "pnpm run build && wrangler deploy",
+		"start": "cd dist && node index.js",
 		"format": "biome check --write --unsafe",
 		"typecheck": "tsc --noEmit"
 	},
@@ -16,16 +15,16 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.3.11",
-		"@cloudflare/workers-types": "^4.20250214.0",
 		"@commitlint/cli": "^20.3.1",
 		"@commitlint/config-conventional": "^20.3.1",
 		"@commitlint/types": "^20.3.1",
+		"@hono/node-server": "^1.14.1",
 		"@hono/vite-build": "^1.3.0",
 		"@hono/vite-dev-server": "^0.18.2",
 		"@tailwindcss/vite": "^4.0.9",
+		"@types/node": "^22.13.4",
 		"lefthook": "^2.0.15",
 		"tailwindcss": "^4.0.9",
-		"vite": "^6.3.5",
-		"wrangler": "^4.4.0"
+		"vite": "^6.3.5"
 	}
 }
