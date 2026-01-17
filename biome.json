@@ -21,6 +21,12 @@
 			},
 			"complexity": {
 				"noBannedTypes": "off"
+			},
+			"nursery": {
+				"useSortedClasses": "error"
+			},
+			"style": {
+				"useBlockStatements": "error"
 			}
 		}
 	},
