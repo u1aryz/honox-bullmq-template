@@ -1,0 +1,21 @@
+[settings]
+experimental = true
+
+[tools]
+pnpm = "latest"
+
+[hooks]
+postinstall = "pnpm i"
+
+[tasks.dev]
+description = "開発モードで起動"
+run = "docker compose up --build"
+
+[tasks.start]
+description = "本番モードで起動"
+run = "docker compose -f compose.yaml up --build"
+
+[tasks.format]
+description = "フォーマットと型チェック"
+run = ["pnpm run format", "pnpm run typecheck"]
+alias = "lint"
