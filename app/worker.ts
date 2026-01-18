@@ -1,4 +1,4 @@
-import { Worker } from "bullmq";
+import { Queue, Worker } from "bullmq";
 import { env } from "./env";
 import * as jobs from "./jobs";
 import type { Job } from "./types/job";
@@ -9,6 +9,8 @@ const connection = {
 	host: env.REDIS_HOST,
 	port: env.REDIS_PORT,
 };
+
+export const queues = jobList.map((job) => new Queue(job.name, { connection }));
 
 export function registerWorker() {
 	const workers: Worker[] = [];
