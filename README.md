@@ -1,6 +1,6 @@
 # honox-bullmq
 
-honox + bullmq スターターテンプレート.
+A starter template for honox + bullmq.
 
 ## Getting started
 
