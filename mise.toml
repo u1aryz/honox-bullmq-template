@@ -8,14 +8,14 @@ pnpm = "latest"
 postinstall = "pnpm i"
 
 [tasks.dev]
-description = "開発モードで起動"
+description = "Start in development mode"
 run = "docker compose up --build"
 
 [tasks.start]
-description = "本番モードで起動"
+description = "Start in production mode"
 run = "docker compose -f compose.yaml up --build"
 
 [tasks.format]
-description = "フォーマットと型チェック"
+description = "Format and type check"
 run = ["pnpm run format", "pnpm run typecheck"]
 alias = "lint"
