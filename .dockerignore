@@ -1,11 +1,33 @@
+# Dependencies & Build
 node_modules
 dist
+
+# Git
 .git
 .gitignore
+
+# IDE & Editor
 .idea
-.claude
-*.md
+.vscode
+*.swp
+*.swo
+
+# Docker
 Dockerfile
 compose.yaml
+compose.override.yaml
 .dockerignore
+
+# Environment
 .env*
+
+# Development tools
+.claude
+lefthook.yml
+biome.json
+commitlint.config.ts
+
+# Misc
+*.md
+degit.json
+mise.toml
