@@ -1,4 +1,4 @@
-# honox-bullmq
+# honox-bullmq-template
 
 A starter template for honox + bullmq.
 
@@ -10,7 +10,7 @@ A starter template for honox + bullmq.
 ## Getting started
 
 ```bash
-pnpm dlx degit u1aryz/honox-bullmq my-app
+pnpm dlx degit u1aryz/honox-bullmq-template my-app
 cd my-app
 mise install
 ```
