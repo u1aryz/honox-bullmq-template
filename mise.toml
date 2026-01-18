@@ -9,7 +9,7 @@ postinstall = "pnpm i"
 
 [tasks.dev]
 description = "Start in development mode"
-run = "docker compose up --build"
+run = "docker compose up --build --watch"
 
 [tasks.start]
 description = "Start in production mode"

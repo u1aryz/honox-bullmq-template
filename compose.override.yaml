@@ -4,11 +4,17 @@ services:
       target: dev
       args:
         - APP_PORT=${APP_PORT:-3000}
+    develop:
+      watch:
+        - action: sync
+          path: ./app
+          target: /app/app
+        - action: rebuild
+          path: ./package.json
+        - action: rebuild
+          path: ./pnpm-lock.yaml
     ports:
       - "${APP_PORT:-3000}:${APP_PORT:-3000}"
     environment:
       - APP_PORT=${APP_PORT:-3000}
-    volumes:
-      - .:/app
-      - /app/node_modules
     restart: no
