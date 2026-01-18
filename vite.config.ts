@@ -22,6 +22,8 @@ function ssrExternalPlugin(): Plugin {
 	};
 }
 
+const port = Number(process.env.APP_PORT) || 3000;
+
 export default defineConfig({
 	plugins: [
 		honox({
@@ -32,7 +34,7 @@ export default defineConfig({
 		}),
 		tailwindcss(),
 		build({
-			port: 8080,
+			port,
 		}),
 		ssrExternalPlugin(),
 	],

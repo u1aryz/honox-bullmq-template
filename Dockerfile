@@ -21,16 +21,22 @@ RUN pnpm install --frozen-lockfile
 # ==========================================
 FROM base AS dev
 
+ARG APP_PORT=3000
+ENV APP_PORT=${APP_PORT}
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-EXPOSE 5173
-CMD ["pnpm", "dev", "--host"]
+EXPOSE ${APP_PORT}
+CMD pnpm dev --host --port ${APP_PORT}
 
 # ==========================================
 # Build stage
 # ==========================================
 FROM base AS builder
+
+ARG APP_PORT=3000
+ENV APP_PORT=${APP_PORT}
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -42,11 +48,12 @@ RUN pnpm build
 # ==========================================
 FROM base AS prod
 
+ARG APP_PORT=3000
 ENV NODE_ENV=production
 
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
-EXPOSE 8080
+EXPOSE ${APP_PORT}
 CMD ["pnpm", "start"]

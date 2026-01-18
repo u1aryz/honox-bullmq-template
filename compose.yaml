@@ -3,9 +3,12 @@ services:
     build:
       context: .
       target: prod
+      args:
+        - APP_PORT=${APP_PORT:-3000}
     ports:
-      - "8080:8080"
+      - "${APP_PORT:-3000}:${APP_PORT:-3000}"
     environment:
+      - APP_PORT=${APP_PORT:-3000}
       - REDIS_HOST=redis
       - REDIS_PORT=6379
     depends_on:

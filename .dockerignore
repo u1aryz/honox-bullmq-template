@@ -8,3 +8,4 @@ dist
 Dockerfile
 compose.yaml
 .dockerignore
+.env*
