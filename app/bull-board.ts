@@ -5,7 +5,7 @@ import { serveStatic } from "@hono/node-server/serve-static";
 import { queues } from "./queues";
 
 const serverAdapter = new HonoAdapter(serveStatic);
-serverAdapter.setBasePath("/bullmq");
+serverAdapter.setBasePath("/bull-board");
 
 createBullBoard({
 	queues: queues.map((queue) => new BullMQAdapter(queue)),

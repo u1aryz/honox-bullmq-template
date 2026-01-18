@@ -6,8 +6,8 @@ import { registerWorker } from "./worker";
 
 const app = createApp();
 
-app.get("/bullmq/", (c) => c.redirect("/bullmq"));
-app.route("/bullmq", bullBoardRouter);
+app.get("/bull-board/", (c) => c.redirect("/bull-board"));
+app.route("/bull-board", bullBoardRouter);
 
 showRoutes(app);
 registerWorker();
