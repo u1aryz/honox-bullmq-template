@@ -12,6 +12,8 @@ A starter template for honox + bullmq.
 ```bash
 pnpm dlx degit u1aryz/honox-bullmq-template my-app
 cd my-app
+cp .env.example .env
+# Edit .env as needed
 mise install
 ```
 
