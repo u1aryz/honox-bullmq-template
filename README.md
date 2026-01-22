@@ -5,23 +5,22 @@ A starter template for honox + bullmq.
 ## Prerequisites
 
 - [Docker Compose](https://docs.docker.com/compose/)
-- [pnpm](https://pnpm.io/)
+- [mise](https://mise.jdx.dev/)
 
 ## Getting started
 
 ```bash
-pnpm dlx degit u1aryz/honox-bullmq-template my-app
+pnpm dlx degit u1aryz/honox-bullmq-template#mise my-app
 cd my-app
 cp .env.example .env
 # Edit .env as needed
-pnpm install
+mise install
 ```
 
 ## Tasks
 
-| Command                                     | Description               |
-| ------------------------------------------- | ------------------------- |
-| `docker compose up --build`                 | Start in development mode |
-| `docker compose -f compose.yaml up --build` | Start in production mode  |
-| `pnpm run format`                           | Format code               |
-| `pnpm run typecheck`                        | Type check                |
+| Command           | Description               |
+| ----------------- | ------------------------- |
+| `mise run dev`    | Start in development mode |
+| `mise run start`  | Start in production mode  |
+| `mise run format` | Format and type check     |
