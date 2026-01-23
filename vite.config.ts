@@ -1,6 +1,6 @@
 import build from "@hono/vite-build/node";
 import tailwindcss from "@tailwindcss/vite";
-import honox, { devServerDefaultOptions } from "honox/vite";
+import honox from "honox/vite";
 import { defineConfig, type Plugin } from "vite";
 
 const ssrExternal = [
@@ -29,12 +29,7 @@ export default defineConfig({
 		honox({
 			client: { input: ["/app/client.ts", "/app/style.css"] },
 			devServer: {
-				// The default exclude patterns (e.g., /.*\.css$/, /.*\.js$/) would cause
-				// Bull Board's static assets to be handled by Vite instead of Hono.
-				// Adding negative lookahead ensures /bull-board/* requests reach Hono.
-				exclude: devServerDefaultOptions.exclude.map((p) =>
-					p instanceof RegExp ? new RegExp(`^(?!/bull-board/)${p.source}`) : p,
-				),
+				exclude: [/^\/(app)\/.+/, /^\/@.+$/, /^\/node_modules\/.*/],
 			},
 		}),
 		tailwindcss(),
