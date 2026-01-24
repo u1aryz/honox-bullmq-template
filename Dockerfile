@@ -17,6 +17,14 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN pnpm install --frozen-lockfile
 
 # ==========================================
+# Production dependencies stage
+# ==========================================
+FROM base AS prod-deps
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN pnpm install --frozen-lockfile --prod
+
+# ==========================================
 # Development stage
 # ==========================================
 FROM base AS dev
@@ -51,9 +59,19 @@ FROM base AS prod
 ARG APP_PORT=3000
 ENV NODE_ENV=production
 
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
+# Install dumb-init for proper signal handling
+RUN apk add --no-cache dumb-init
+
+WORKDIR /app/dist
+
+# Copy production dependencies and built files (owned by node user)
+COPY --chown=node:node --from=prod-deps /app/node_modules /app/node_modules
+COPY --chown=node:node --from=builder /app/dist ./
+COPY --chown=node:node --from=builder /app/package.json /app/package.json
+
+# Run as non-root user
+USER node
 
 EXPOSE ${APP_PORT}
-CMD ["pnpm", "start"]
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["node", "index.js"]
