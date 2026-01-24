@@ -1,6 +1,6 @@
 import build from "@hono/vite-build/node";
 import tailwindcss from "@tailwindcss/vite";
-import honox from "honox/vite";
+import honox, { devServerDefaultOptions } from "honox/vite";
 import { defineConfig, type Plugin } from "vite";
 
 const ssrExternal = [
@@ -29,7 +29,16 @@ export default defineConfig({
 		honox({
 			client: { input: ["/app/client.ts", "/app/style.css"] },
 			devServer: {
-				exclude: [/^\/(app)\/.+/, /^\/@.+$/, /^\/node_modules\/.*/],
+				// Allow Bull Board static assets (CSS/JS) to be served by the dev server
+				// while excluding other CSS/JS files from dev server handling
+				exclude: [
+					...devServerDefaultOptions.exclude.filter(
+						(pattern) =>
+							!["/.*\\.css$/", "/.*\\.js$/"].includes(String(pattern)),
+					),
+					/^(?!\/bull-board).*\.css$/,
+					/^(?!\/bull-board).*\.js$/,
+				],
 			},
 		}),
 		tailwindcss(),
