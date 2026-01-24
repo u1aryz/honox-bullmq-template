@@ -2,8 +2,6 @@ services:
   app:
     build:
       target: dev
-      args:
-        - APP_PORT=${APP_PORT:-3000}
     develop:
       watch:
         - action: sync
@@ -13,8 +11,4 @@ services:
           path: ./package.json
         - action: rebuild
           path: ./pnpm-lock.yaml
-    ports:
-      - "${APP_PORT:-3000}:${APP_PORT:-3000}"
-    environment:
-      - APP_PORT=${APP_PORT:-3000}
     restart: no
