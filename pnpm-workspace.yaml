@@ -4,3 +4,7 @@ onlyBuiltDependencies:
   - msgpackr-extract
   - sharp
   - workerd
+
+updateConfig:
+  ignoreDependencies:
+    - vite

@@ -21,7 +21,7 @@ pnpm install
 
 | Command                                     | Description               |
 | ------------------------------------------- | ------------------------- |
-| `docker compose up --build --watch`         | Start in development mode |
+| `docker compose up --build`                 | Start in development mode |
 | `docker compose -f compose.yaml up --build` | Start in production mode  |
 | `pnpm run format`                           | Format code               |
 | `pnpm run typecheck`                        | Type check                |
