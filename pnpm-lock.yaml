@@ -17,6 +17,9 @@ importers:
       '@bull-board/ui':
         specifier: ^6.16.4
         version: 6.16.4
+      '@hono/node-server':
+        specifier: ^1.14.1
+        version: 1.19.9(hono@4.11.5)
       bullmq:
         specifier: ^5.67.0
         version: 5.67.0
@@ -42,9 +45,6 @@ importers:
       '@commitlint/types':
         specifier: ^20.3.1
         version: 20.3.1
-      '@hono/node-server':
-        specifier: ^1.14.1
-        version: 1.19.9(hono@4.11.5)
       '@hono/vite-build':
         specifier: ^1.9.2
         version: 1.9.2(hono@4.11.5)
